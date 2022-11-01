@@ -35,6 +35,6 @@ test.encoded:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/test_encoded.pq
 
-test.predicted:
+test.reported:
   type: pandas.CSVDataSet
   filepath: data/07_model_output/predicted.csv

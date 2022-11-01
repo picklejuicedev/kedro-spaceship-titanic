@@ -12,12 +12,12 @@ model_pipe = pipeline(
             node(
                 func=make_model,
                 inputs="encoded",
-                outputs="regressor",
+                outputs=["regressor", "X_test", "y_test"],
                 name="make_model",
             )
         ],
         inputs="encoded",
-        outputs="regressor",
+        outputs=["regressor", "X_test", "y_test"],
         namespace="model"
 )
 

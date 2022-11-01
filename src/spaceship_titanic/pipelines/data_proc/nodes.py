@@ -5,9 +5,9 @@ import pandas as pd
 
 def create_alone_col(df: pd.DataFrame ) -> pd.DataFrame:
     split_df = df["PassengerId"].str.split(pat="_",expand=True)
-    alone = split_df[0].value_counts() == 1
-    split_df = split_df.merge(alone.rename("Alone"), left_on=0, right_index=True)
-    df["Alone"] = split_df['Alone']
+    alone = split_df[0].value_counts()
+    split_df = split_df.merge(alone.rename("groupSize"), left_on=0, right_index=True)
+    df["groupSize"] = split_df['groupSize']
     return df
 
 def split_cabin(df: pd.DataFrame) -> pd.DataFrame:

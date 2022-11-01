@@ -8,33 +8,41 @@
 train.input:
   type: pandas.CSVDataSet
   filepath: data/01_raw/train.csv
+  layer: raw
 
 train.preprocessed:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/train_preprocessed.pq
+  layer: preprocess
 
 train.encoded:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/train_encoded.pq
+  layer: encoded
 
 regressor:
   type: pickle.PickleDataSet
   filepath: data/06_models/regressor.pickle
   versioned: false
+  layer: model
 
 
 test.input:
   type: pandas.CSVDataSet
   filepath: data/01_raw/test.csv
+  layer: raw
 
 test.preprocessed:
   type: pandas.ParquetDataSet
   filepath: data/02_intermediate/test_preprocessed.pq
+  layer: preprocess
 
 test.encoded:
   type: pandas.ParquetDataSet
   filepath: data/03_primary/test_encoded.pq
+  layer: encoded
 
 test.reported:
   type: pandas.CSVDataSet
   filepath: data/07_model_output/predicted.csv
+  layer: reporting

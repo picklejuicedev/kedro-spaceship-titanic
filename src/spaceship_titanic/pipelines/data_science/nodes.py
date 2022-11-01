@@ -1,5 +1,7 @@
 
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from lightgbm import LGBMClassifier
 
 from sklearn.metrics import accuracy_score, log_loss, precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split,cross_validate,cross_val_score
@@ -17,6 +19,7 @@ def make_model(df: pd.DataFrame):
     X_train = X_train.drop(columns=["PassengerId", "Firstname","Lastname", "Transported"])
     X_test = X_test.drop(columns=["Transported"])
 
-    clf = RandomForestClassifier()
+    #clf = LogisticRegression(max_iter=3000)
+    clf = LGBMClassifier()
     model = clf.fit(X_train, y_train)
     return model, X_test, y_test

@@ -1,0 +1,40 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+
+
+train.input:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/train.csv
+
+train.preprocessed:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/train_preprocessed.pq
+
+train.encoded:
+  type: pandas.ParquetDataSet
+  filepath: data/03_primary/train_encoded.pq
+
+regressor:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/regressor.pickle
+  versioned: false
+
+
+test.input:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/test.csv
+
+test.preprocessed:
+  type: pandas.ParquetDataSet
+  filepath: data/02_intermediate/test_preprocessed.pq
+
+test.encoded:
+  type: pandas.ParquetDataSet
+  filepath: data/03_primary/test_encoded.pq
+
+test.predicted:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/predicted.csv

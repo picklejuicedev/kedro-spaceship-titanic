@@ -12,17 +12,16 @@ kaggle_output = pipeline(
         [
             node(
                 func=report_kaggle,
-                inputs=["passenderId_list","predicted"],
+                inputs=["passenderId_list", "predicted"],
                 outputs="reported",
                 name="report_kaggle",
             )
-            
         ],
-        inputs=["passenderId_list","predicted"],
+        inputs=["passenderId_list", "predicted"],
         outputs="reported",
         namespace="report_kaggle",
     ),
-    namespace="test"
+    namespace="test",
 )
 
 train_output = pipeline(
@@ -30,19 +29,18 @@ train_output = pipeline(
         [
             node(
                 func=report_accuracy,
-                inputs=["y_test","predicted"],
+                inputs=["y_test", "predicted"],
                 outputs=None,
                 name="report_train",
             )
         ],
-        inputs=["y_test","predicted"],
+        inputs=["y_test", "predicted"],
         outputs=None,
         namespace="report_train",
     ),
-    namespace="train"
+    namespace="train",
 )
 
 
-
 def create_pipeline(**kwargs) -> Pipeline:
-    return kaggle_output + train_output 
+    return kaggle_output + train_output

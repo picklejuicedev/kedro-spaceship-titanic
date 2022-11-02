@@ -7,3 +7,6 @@ Kedro recommends using `pytest` framework, more info about it can be found
 in the official documentation:
 https://docs.pytest.org/en/latest/getting-started.html
 """
+
+
+# def test_data_proc_pipeline():

@@ -9,23 +9,20 @@ from .nodes import make_model
 
 model_pipe = pipeline(
     [
-            node(
-                func=make_model,
-                inputs="encoded",
-                outputs=["regressor", "X_test", "y_test"],
-                name="make_model",
-            )
-        ],
-        inputs="encoded",
-        outputs=["regressor", "X_test", "y_test"],
-        namespace="model"
+        node(
+            func=make_model,
+            inputs="encoded",
+            outputs=["regressor", "X_test", "y_test"],
+            name="make_model",
+        )
+    ],
+    inputs="encoded",
+    outputs=["regressor", "X_test", "y_test"],
+    namespace="model",
 )
 
-train_model = pipeline(
-    pipe = model_pipe,
-    outputs="regressor",
-    namespace="train"
-)
+train_model = pipeline(pipe=model_pipe, outputs="regressor", namespace="train")
+
 
 def create_pipeline(**kwargs) -> Pipeline:
     return train_model

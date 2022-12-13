@@ -3,8 +3,6 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
 
-
-
 train.input:
   type: pandas.CSVDataSet
   filepath: data/01_raw/train.csv
@@ -25,7 +23,6 @@ regressor:
   filepath: data/06_models/regressor.pickle
   versioned: false
   layer: model
-
 
 test.input:
   type: pandas.CSVDataSet

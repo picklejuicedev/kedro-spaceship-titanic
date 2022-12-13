@@ -1,0 +1,11 @@
+input:
+  type: pandas.CSVDataSet
+  filepath: data/09_testing/train.csv
+
+preprocessed_ref:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/preprocessed.pq
+
+preprocessed:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/temp/preprocessed.pq

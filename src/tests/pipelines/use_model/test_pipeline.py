@@ -1,6 +1,5 @@
 import pytest
 from kedro.pipeline import pipeline
-from sklearn.metrics import accuracy_score
 
 
 from spaceship_titanic.pipelines.use_model.pipeline import (

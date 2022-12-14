@@ -9,7 +9,7 @@ from kedro.io import MemoryDataSet
 from tests.conftest import seq_runner, catalog  # noqa: F401
 
 
-@pytest.mark.parametrize("filepath", ["conf/base/test/catalog_reporting.yml"])
+@pytest.mark.parametrize("filepath", ["conf/test/catalog_reporting.yml"])
 def test_kaggle_output(seq_runner, catalog):  # noqa: F811
     data = {
         "PassengerId": ["0001_01", "0002_01", "0002_02", "0003_01"],
@@ -34,7 +34,7 @@ def test_kaggle_output(seq_runner, catalog):  # noqa: F811
     assert_frame_equal(reported, df_result)
 
 
-@pytest.mark.parametrize("filepath", ["conf/base/test/catalog_reporting.yml"])
+@pytest.mark.parametrize("filepath", ["conf/test/catalog_reporting.yml"])
 def test_report_accuracy(seq_runner, catalog):  # noqa: F811
 
     y_test = pd.Series([True, False, True, True])

@@ -1,0 +1,11 @@
+encoded:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/encoded.pq
+
+regressor:
+  type: pickle.PickleDataSet
+  filepath: data/09_testing/regressor.pickle
+
+X_test:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/X_test.pq

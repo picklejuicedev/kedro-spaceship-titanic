@@ -7,7 +7,7 @@ from pandas.testing import assert_frame_equal
 from tests.conftest import seq_runner, catalog  # noqa: F401
 
 
-@pytest.mark.parametrize("filepath", ["conf/base/test/catalog_data_encode.yml"])
+@pytest.mark.parametrize("filepath", ["conf/test/catalog_data_encode.yml"])
 def test_data_proc_pipeline(seq_runner, catalog):  # noqa: F811
     # create the pipeline
     pipe = pipeline(pipe=encode_pipe)

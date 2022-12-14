@@ -8,7 +8,7 @@ from spaceship_titanic.pipelines.data_science.pipeline import model_pipe
 from tests.conftest import seq_runner, catalog  # noqa: F401
 
 
-@pytest.mark.parametrize("filepath", ["conf/base/test/catalog_data_science.yml"])
+@pytest.mark.parametrize("filepath", ["conf/test/catalog_data_science.yml"])
 def test_data_proc_pipeline(seq_runner, catalog):  # noqa: F811
     # create the pipeline
     pipe = pipeline(pipe=model_pipe)
@@ -21,9 +21,14 @@ def test_data_proc_pipeline(seq_runner, catalog):  # noqa: F811
     # run over known test training data and get at least matching accuracy
     X_test = catalog.load("X_test")
     y_test = catalog.load("y_test")
+    X_test = X_test.drop(
+        columns=["PassengerId", "Firstname", "Lastname", "Transported"]
+    )
+
     y_pred = model.predict(X_test)
 
     ref_model = catalog.load("regressor_ref")
+
     y_pred_ref = ref_model.predict(X_test)
     ref_accuracy = accuracy_score(y_test, y_pred_ref)
 

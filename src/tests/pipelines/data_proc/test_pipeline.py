@@ -6,7 +6,7 @@ from pandas.testing import assert_frame_equal
 from tests.conftest import seq_runner, catalog  # noqa: F401 - disable linting error
 
 
-@pytest.mark.parametrize("filepath", ["conf/base/test/catalog_data_proc.yml"])
+@pytest.mark.parametrize("filepath", ["conf/test/catalog_data_proc.yml"])
 def test_data_proc_pipeline(seq_runner, catalog):  # noqa: F811 - disable linting error
     # create the pipeline
     train_pipe = pipeline(pipe=base_proc)

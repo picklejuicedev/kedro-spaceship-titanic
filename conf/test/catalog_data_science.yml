@@ -11,9 +11,9 @@ regressor:
   filepath: data/09_testing/temp/regressor.pickle
 
 X_test:
-  type: pickle.PickleDataSet
+  type: pandas.ParquetDataSet
   filepath: data/09_testing/temp/X_test.pq
 
 y_test:
   type: pickle.PickleDataSet
-  filepath: data/09_testing/temp/y_test.pq
+  filepath: data/09_testing/temp/y_test.pickle

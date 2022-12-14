@@ -1,0 +1,11 @@
+preprocessed:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/preprocessed.pq
+
+encoded_ref:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/encoded.pq
+
+encoded:
+  type: pandas.ParquetDataSet
+  filepath: data/09_testing/temp/encoded.pq
